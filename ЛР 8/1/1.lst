@@ -1,0 +1,87 @@
+Microsoft (R) Macro Assembler Version 11.00.61030.0	    05/26/15 20:34:22
+SourceAsm.asm						     Page 1 - 1
+
+
+				.586
+				.MODEL FLAT, C
+ 00000000			.DATA
+ 00000000			.CODE
+ 00000000			getMin PROC C a:dword, min:dword
+ 00000003  8B 45 08			mov eax, a
+ 00000006  3B 45 0C			cmp eax, min
+ 00000009  7E 03			jle exitMin
+
+ 0000000B  8B 45 0C			mov eax, min
+
+ 0000000E				exitMin:
+
+					ret
+ 00000010			getMin ENDP
+
+ 00000010			getMax PROC C a:dword, max:dword
+ 00000013  8B 45 08			mov eax, a
+ 00000016  3B 45 0C			cmp eax, max
+ 00000019  7D 03			jge exitMax
+
+ 0000001B  8B 45 0C			mov eax, max
+
+ 0000001E				exitMax:
+
+					ret
+ 00000020			getMax ENDP
+
+ 00000020			getM PROC C min:dword, max:dword
+ 00000023  8B 45 08			mov eax, min
+ 00000026  03 45 0C			add eax, max
+					ret
+ 0000002B			getM ENDP
+
+				END
+Microsoft (R) Macro Assembler Version 11.00.61030.0	    05/26/15 20:34:22
+SourceAsm.asm						     Symbols 2 - 1
+
+
+
+
+Segments and Groups:
+
+                N a m e                 Size     Length   Align   Combine Class
+
+FLAT . . . . . . . . . . . . . .	GROUP
+_DATA  . . . . . . . . . . . . .	32 Bit	 00000000 Para	  Public  'DATA'	
+_TEXT  . . . . . . . . . . . . .	32 Bit	 0000002B Para	  Public  'CODE'	
+
+
+Procedures, parameters, and locals:
+
+                N a m e                 Type     Value    Attr
+
+getMax . . . . . . . . . . . . .	P Near	 00000010 _TEXT	Length= 00000010 Public C
+  a  . . . . . . . . . . . . . .	DWord	 bp + 00000008
+  max  . . . . . . . . . . . . .	DWord	 bp + 0000000C
+  exitMax  . . . . . . . . . . .	L Near	 0000001E _TEXT	
+getMin . . . . . . . . . . . . .	P Near	 00000000 _TEXT	Length= 00000010 Public C
+  a  . . . . . . . . . . . . . .	DWord	 bp + 00000008
+  min  . . . . . . . . . . . . .	DWord	 bp + 0000000C
+  exitMin  . . . . . . . . . . .	L Near	 0000000E _TEXT	
+getM . . . . . . . . . . . . . .	P Near	 00000020 _TEXT	Length= 0000000B Public C
+  min  . . . . . . . . . . . . .	DWord	 bp + 00000008
+  max  . . . . . . . . . . . . .	DWord	 bp + 0000000C
+
+
+Symbols:
+
+                N a m e                 Type     Value    Attr
+
+@CodeSize  . . . . . . . . . . .	Number	 00000000h   
+@DataSize  . . . . . . . . . . .	Number	 00000000h   
+@Interface . . . . . . . . . . .	Number	 00000001h   
+@Model . . . . . . . . . . . . .	Number	 00000007h   
+@code  . . . . . . . . . . . . .	Text   	 _TEXT
+@data  . . . . . . . . . . . . .	Text   	 FLAT
+@fardata?  . . . . . . . . . . .	Text   	 FLAT
+@fardata . . . . . . . . . . . .	Text   	 FLAT
+@stack . . . . . . . . . . . . .	Text   	 FLAT
+
+	   0 Warnings
+	   0 Errors
